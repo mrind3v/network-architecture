@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="720" viewBox="0 0 1500 720" role="img" aria-labelledby="title desc">
+  <title id="title">Seven socket calls in a TCP echo server</title>
+  <desc id="desc">A left-to-right flow shows socket, bind, listen, accept, read, write and close. The listening socket persists while each accepted client gets a separate file descriptor.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#60748D"/></marker>
+  </defs>
+  <rect width="1500" height="720" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="80" y="86" fill="#F1F5F9" font-size="42" font-weight="700">The echo server is a lifecycle, not seven unrelated calls</text>
+    <text x="80" y="126" fill="#A8B7CB" font-size="22">The first three prepare one listening socket. accept() creates a different FD for each client.</text>
+
+    <text x="80" y="202" fill="#62E5DB" font-size="19" font-weight="700">LISTENING SOCKET: server_fd</text>
+    <rect x="80" y="226" width="238" height="146" rx="18" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="112" y="274" fill="#62E5DB" font-size="28" font-weight="700">1. socket()</text>
+    <text x="112" y="309" fill="#D8E3EF" font-size="20">Ask the kernel for</text>
+    <text x="112" y="336" fill="#D8E3EF" font-size="20">a TCP socket handle</text>
+    <line x1="318" y1="299" x2="365" y2="299" stroke="#60748D" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="370" y="226" width="238" height="146" rx="18" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="402" y="274" fill="#62E5DB" font-size="28" font-weight="700">2. bind()</text>
+    <text x="402" y="309" fill="#D8E3EF" font-size="20">Claim local address</text>
+    <text x="402" y="336" fill="#D8E3EF" font-size="20">and port 2026</text>
+    <line x1="608" y1="299" x2="655" y2="299" stroke="#60748D" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="660" y="226" width="238" height="146" rx="18" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="692" y="274" fill="#62E5DB" font-size="28" font-weight="700">3. listen()</text>
+    <text x="692" y="309" fill="#D8E3EF" font-size="20">Create a queue for</text>
+    <text x="692" y="336" fill="#D8E3EF" font-size="20">incoming connections</text>
+    <line x1="898" y1="299" x2="945" y2="299" stroke="#60748D" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="950" y="226" width="238" height="146" rx="18" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/>
+    <text x="982" y="274" fill="#83C6FF" font-size="28" font-weight="700">4. accept()</text>
+    <text x="982" y="309" fill="#D8E3EF" font-size="20">Take one completed</text>
+    <text x="982" y="336" fill="#D8E3EF" font-size="20">connection from queue</text>
+
+    <path d="M1069 373 L1069 431" stroke="#4AA8FF" stroke-width="4" marker-end="url(#arrow)"/>
+    <text x="1100" y="410" fill="#A8B7CB" font-size="18">new client_fd</text>
+
+    <text x="80" y="468" fill="#83C6FF" font-size="19" font-weight="700">ONE ESTABLISHED CONNECTION: client_fd</text>
+    <rect x="80" y="492" width="286" height="142" rx="18" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/>
+    <text x="112" y="541" fill="#83C6FF" font-size="28" font-weight="700">5. read()</text>
+    <text x="112" y="576" fill="#D8E3EF" font-size="20">Receive some bytes</text>
+    <text x="112" y="603" fill="#D8E3EF" font-size="20">from this client</text>
+    <line x1="366" y1="563" x2="428" y2="563" stroke="#60748D" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="433" y="492" width="286" height="142" rx="18" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/>
+    <text x="465" y="541" fill="#83C6FF" font-size="28" font-weight="700">6. write()</text>
+    <text x="465" y="576" fill="#D8E3EF" font-size="20">Send response bytes</text>
+    <text x="465" y="603" fill="#D8E3EF" font-size="20">back to that client</text>
+    <line x1="719" y1="563" x2="781" y2="563" stroke="#60748D" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="786" y="492" width="286" height="142" rx="18" fill="#242B39" stroke="#94A3B8" stroke-width="3"/>
+    <text x="818" y="541" fill="#CBD5E1" font-size="28" font-weight="700">7. close()</text>
+    <text x="818" y="576" fill="#D8E3EF" font-size="20">Release this client's</text>
+    <text x="818" y="603" fill="#D8E3EF" font-size="20">connection FD</text>
+
+    <path d="M1072 563 C1160 563 1220 563 1220 458 C1220 398 1110 398 1068 398" fill="none" stroke="#60748D" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrow)"/>
+    <text x="1172" y="494" fill="#A8B7CB" font-size="18">return to</text>
+    <text x="1172" y="519" fill="#A8B7CB" font-size="18">accept()</text>
+  </g>
+</svg>

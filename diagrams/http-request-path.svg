@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="780" viewBox="0 0 1500 780" role="img" aria-labelledby="title desc">
+  <title id="title">How a curl request reaches an HTTP server</title>
+  <desc id="desc">A request path goes from curl to local DNS resolution to TCP connection and accept queue to server parsing and response bytes returned to curl.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#62E5DB"/></marker>
+    <marker id="return" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#F9B357"/></marker>
+  </defs>
+  <rect width="1500" height="780" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="80" y="86" fill="#F1F5F9" font-size="42" font-weight="700">One HTTP request, end to end</text>
+    <text x="80" y="126" fill="#A8B7CB" font-size="22">For a local example, `curl http://localhost:2026/` travels through the same basic layers as a web request.</text>
+
+    <rect x="80" y="192" width="230" height="126" rx="18" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="115" y="240" fill="#62E5DB" font-size="26" font-weight="700">1. curl</text>
+    <text x="115" y="276" fill="#D8E3EF" font-size="20">wants localhost</text>
+    <text x="115" y="302" fill="#D8E3EF" font-size="20">at port 2026</text>
+    <line x1="310" y1="255" x2="380" y2="255" stroke="#62E5DB" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="385" y="192" width="230" height="126" rx="18" fill="#222B4D" stroke="#A78BFA" stroke-width="3"/>
+    <text x="420" y="240" fill="#C4B5FD" font-size="26" font-weight="700">2. DNS</text>
+    <text x="420" y="276" fill="#D8E3EF" font-size="20">localhost becomes</text>
+    <text x="420" y="302" fill="#D8E3EF" font-size="20">127.0.0.1</text>
+    <line x1="615" y1="255" x2="685" y2="255" stroke="#62E5DB" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="690" y="192" width="260" height="126" rx="18" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/>
+    <text x="725" y="240" fill="#83C6FF" font-size="26" font-weight="700">3. TCP</text>
+    <text x="725" y="276" fill="#D8E3EF" font-size="20">handshake creates</text>
+    <text x="725" y="302" fill="#D8E3EF" font-size="20">a byte stream</text>
+    <line x1="950" y1="255" x2="1020" y2="255" stroke="#62E5DB" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="1025" y="192" width="360" height="126" rx="18" fill="#143743" stroke="#35D3C9" stroke-width="3"/>
+    <text x="1060" y="240" fill="#62E5DB" font-size="26" font-weight="700">4. accept()</text>
+    <text x="1060" y="276" fill="#D8E3EF" font-size="20">server receives a new</text>
+    <text x="1060" y="302" fill="#D8E3EF" font-size="20">client_fd from the queue</text>
+
+    <line x1="1205" y1="318" x2="1205" y2="399" stroke="#62E5DB" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="945" y="404" width="440" height="128" rx="18" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="980" y="452" fill="#62E5DB" font-size="26" font-weight="700">5. server reads HTTP bytes</text>
+    <text x="980" y="488" fill="#D8E3EF" font-size="20">GET / HTTP/1.1 + headers + blank line</text>
+
+    <line x1="945" y1="468" x2="805" y2="468" stroke="#F9B357" stroke-width="4" marker-end="url(#return)"/>
+    <rect x="390" y="404" width="410" height="128" rx="18" fill="#3A2E1E" stroke="#F9B357" stroke-width="3"/>
+    <text x="425" y="452" fill="#F9B357" font-size="26" font-weight="700">6. server writes response</text>
+    <text x="425" y="488" fill="#F8E6CE" font-size="20">status line + headers + body bytes</text>
+
+    <line x1="390" y1="468" x2="310" y2="468" stroke="#F9B357" stroke-width="4" marker-end="url(#return)"/>
+    <rect x="80" y="404" width="225" height="128" rx="18" fill="#3A2E1E" stroke="#F9B357" stroke-width="3"/>
+    <text x="115" y="452" fill="#F9B357" font-size="26" font-weight="700">7. curl</text>
+    <text x="115" y="488" fill="#F8E6CE" font-size="20">prints the response</text>
+
+    <rect x="80" y="620" width="1305" height="74" rx="14" fill="#111C2E" stroke="#2A455F" stroke-width="2"/>
+    <text x="118" y="666" fill="#A8B7CB" font-size="22">Key observation: TCP transports bytes. HTTP gives those bytes their request-and-response meaning.</text>
+  </g>
+</svg>

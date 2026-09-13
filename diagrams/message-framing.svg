@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="740" viewBox="0 0 1500 740" role="img" aria-labelledby="title desc">
+  <title id="title">Three message framing strategies for a TCP byte stream</title>
+  <desc id="desc">Fixed length, delimiter and length-prefixed framing choices show how a receiver identifies the boundary between messages inside a TCP byte stream.</desc>
+  <rect width="1500" height="740" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="80" y="86" fill="#F1F5F9" font-size="42" font-weight="700">TCP delivers bytes. Your protocol must find message boundaries.</text>
+    <text x="80" y="126" fill="#A8B7CB" font-size="22">A single read may contain part of a message, exactly one message, or several messages.</text>
+
+    <rect x="80" y="190" width="404" height="448" rx="20" fill="#111C2E" stroke="#35D3C9" stroke-width="3"/>
+    <text x="118" y="244" fill="#62E5DB" font-size="28" font-weight="700">1. Fixed length</text>
+    <text x="118" y="280" fill="#C5D1DF" font-size="20">Every message is exactly N bytes.</text>
+    <rect x="118" y="337" width="104" height="76" rx="8" fill="#17314A" stroke="#35D3C9" stroke-width="2"/>
+    <rect x="222" y="337" width="104" height="76" rx="8" fill="#17314A" stroke="#35D3C9" stroke-width="2"/>
+    <rect x="326" y="337" width="104" height="76" rx="8" fill="#17314A" stroke="#35D3C9" stroke-width="2"/>
+    <text x="170" y="383" text-anchor="middle" fill="#E6EEF8" font-size="19">N bytes</text>
+    <text x="274" y="383" text-anchor="middle" fill="#E6EEF8" font-size="19">N bytes</text>
+    <text x="378" y="383" text-anchor="middle" fill="#E6EEF8" font-size="19">N bytes</text>
+    <text x="118" y="488" fill="#B5F5D4" font-size="20" font-weight="700">Good for:</text>
+    <text x="118" y="520" fill="#D8E3EF" font-size="19">simple, predictable records</text>
+    <text x="118" y="566" fill="#F9B357" font-size="20" font-weight="700">Trade-off:</text>
+    <text x="118" y="598" fill="#D8E3EF" font-size="19">padding or inflexible size</text>
+
+    <rect x="548" y="190" width="404" height="448" rx="20" fill="#111C2E" stroke="#A78BFA" stroke-width="3"/>
+    <text x="586" y="244" fill="#C4B5FD" font-size="28" font-weight="700">2. Delimiter</text>
+    <text x="586" y="280" fill="#C5D1DF" font-size="20">Read until a chosen sentinel.</text>
+    <rect x="586" y="337" width="143" height="76" rx="8" fill="#222B4D" stroke="#A78BFA" stroke-width="2"/>
+    <rect x="729" y="337" width="55" height="76" rx="8" fill="#372E55" stroke="#C4B5FD" stroke-width="2"/>
+    <rect x="784" y="337" width="113" height="76" rx="8" fill="#222B4D" stroke="#A78BFA" stroke-width="2"/>
+    <rect x="897" y="337" width="38" height="76" rx="8" fill="#372E55" stroke="#C4B5FD" stroke-width="2"/>
+    <text x="657" y="383" text-anchor="middle" fill="#E6EEF8" font-size="19">PING</text>
+    <text x="757" y="383" text-anchor="middle" fill="#E6EEF8" font-size="18">\n</text>
+    <text x="841" y="383" text-anchor="middle" fill="#E6EEF8" font-size="19">PONG</text>
+    <text x="916" y="383" text-anchor="middle" fill="#E6EEF8" font-size="18">\n</text>
+    <text x="586" y="488" fill="#D7C9FF" font-size="20" font-weight="700">Good for:</text>
+    <text x="586" y="520" fill="#D8E3EF" font-size="19">human-readable text protocols</text>
+    <text x="586" y="566" fill="#F9B357" font-size="20" font-weight="700">Trade-off:</text>
+    <text x="586" y="598" fill="#D8E3EF" font-size="19">escaping delimiter in data</text>
+
+    <rect x="1016" y="190" width="404" height="448" rx="20" fill="#111C2E" stroke="#F9B357" stroke-width="3"/>
+    <text x="1054" y="244" fill="#F9B357" font-size="28" font-weight="700">3. Length prefix</text>
+    <text x="1054" y="280" fill="#C5D1DF" font-size="20">Send size first, then that many bytes.</text>
+    <rect x="1054" y="337" width="81" height="76" rx="8" fill="#3A2E1E" stroke="#F9B357" stroke-width="2"/>
+    <rect x="1135" y="337" width="169" height="76" rx="8" fill="#242B39" stroke="#F9B357" stroke-width="2"/>
+    <rect x="1304" y="337" width="81" height="76" rx="8" fill="#3A2E1E" stroke="#F9B357" stroke-width="2"/>
+    <text x="1094" y="383" text-anchor="middle" fill="#F8E6CE" font-size="18">len=5</text>
+    <text x="1219" y="383" text-anchor="middle" fill="#E6EEF8" font-size="19">H E L L O</text>
+    <text x="1344" y="383" text-anchor="middle" fill="#F8E6CE" font-size="18">len=3</text>
+    <text x="1054" y="488" fill="#FBD3A2" font-size="20" font-weight="700">Good for:</text>
+    <text x="1054" y="520" fill="#D8E3EF" font-size="19">variable-size binary data</text>
+    <text x="1054" y="566" fill="#F9B357" font-size="20" font-weight="700">Rule:</text>
+    <text x="1054" y="598" fill="#D8E3EF" font-size="19">validate the advertised size</text>
+  </g>
+</svg>

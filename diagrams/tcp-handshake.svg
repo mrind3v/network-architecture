@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-labelledby="title desc">
+  <title id="title">TCP connection setup between client and server</title>
+  <desc id="desc">A client sends SYN to a server, server sends SYN ACK, client sends ACK, and the connection becomes established. The server program then receives the connection from accept.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L12,6 L0,12 z" fill="#62E5DB"/></marker>
+  </defs>
+  <rect width="1400" height="720" fill="#0B1220"/>
+  <text x="88" y="90" fill="#F1F5F9" font-family="Arial, sans-serif" font-size="42" font-weight="700">TCP setup happens before your application exchanges bytes</text>
+  <text x="88" y="130" fill="#A8B7CB" font-family="Arial, sans-serif" font-size="22">The kernel performs this protocol. Your server sees the completed connection through accept().</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="178" y="185" width="340" height="94" rx="16" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="216" y="226" fill="#62E5DB" font-size="26" font-weight="700">Client kernel</text>
+    <text x="216" y="258" fill="#C5D1DF" font-size="19">ephemeral port, e.g. 51842</text>
+    <rect x="882" y="185" width="340" height="94" rx="16" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/>
+    <text x="920" y="226" fill="#83C6FF" font-size="26" font-weight="700">Server kernel</text>
+    <text x="920" y="258" fill="#C5D1DF" font-size="19">listening at port 2026</text>
+
+    <line x1="512" y1="338" x2="888" y2="338" stroke="#62E5DB" stroke-width="5" marker-end="url(#arrow)"/>
+    <rect x="622" y="306" width="156" height="58" rx="29" fill="#143743"/>
+    <text x="676" y="344" text-anchor="middle" fill="#62E5DB" font-size="25" font-weight="700">SYN</text>
+
+    <line x1="888" y1="438" x2="512" y2="438" stroke="#83C6FF" stroke-width="5" marker-end="url(#arrow)"/>
+    <rect x="584" y="406" width="232" height="58" rx="29" fill="#172B45"/>
+    <text x="700" y="444" text-anchor="middle" fill="#83C6FF" font-size="25" font-weight="700">SYN + ACK</text>
+
+    <line x1="512" y1="538" x2="888" y2="538" stroke="#62E5DB" stroke-width="5" marker-end="url(#arrow)"/>
+    <rect x="622" y="506" width="156" height="58" rx="29" fill="#143743"/>
+    <text x="700" y="544" text-anchor="middle" fill="#62E5DB" font-size="25" font-weight="700">ACK</text>
+
+    <rect x="267" y="608" width="866" height="62" rx="13" fill="#153929" stroke="#35D3C9" stroke-width="2"/>
+    <text x="700" y="649" text-anchor="middle" fill="#B5F5D4" font-size="25" font-weight="700">Established connection: client and server can now read and write application bytes</text>
+    <path d="M1052 280 L1052 608" stroke="#4AA8FF" stroke-width="3" stroke-dasharray="8 8"/>
+    <text x="1080" y="495" fill="#A8B7CB" font-size="18">connection waits in</text>
+    <text x="1080" y="520" fill="#A8B7CB" font-size="18">the accept queue</text>
+  </g>
+</svg>

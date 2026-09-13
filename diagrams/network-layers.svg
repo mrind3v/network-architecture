@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Network layers from application data to physical transmission</title>
+  <desc id="desc">A five-layer stack connects an HTTP request at the top to Wi-Fi or Ethernet at the bottom. A highlighted callout maps localhost port 2026 to IP and TCP layers.</desc>
+  <rect width="1400" height="760" fill="#0B1220"/>
+  <text x="88" y="92" fill="#F1F5F9" font-family="Arial, sans-serif" font-size="42" font-weight="700">One request travels through layers</text>
+  <text x="88" y="132" fill="#A8B7CB" font-family="Arial, sans-serif" font-size="22">Each layer solves one problem and passes its result to the layer below.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="88" y="185" width="820" height="82" rx="14" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="124" y="233" fill="#62E5DB" font-size="23" font-weight="700">7  Application</text>
+    <text x="392" y="233" fill="#E6EEF8" font-size="22">HTTP request, echo message, Redis command</text>
+
+    <path d="M498 268 L498 294" stroke="#60748D" stroke-width="4"/>
+    <path d="M488 286 L498 296 L508 286" fill="none" stroke="#60748D" stroke-width="4"/>
+    <rect x="88" y="302" width="820" height="82" rx="14" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/>
+    <text x="124" y="350" fill="#83C6FF" font-size="23" font-weight="700">4  Transport</text>
+    <text x="392" y="350" fill="#E6EEF8" font-size="22">TCP connection and port numbers</text>
+
+    <path d="M498 385 L498 411" stroke="#60748D" stroke-width="4"/>
+    <path d="M488 403 L498 413 L508 403" fill="none" stroke="#60748D" stroke-width="4"/>
+    <rect x="88" y="419" width="820" height="82" rx="14" fill="#222B4D" stroke="#A78BFA" stroke-width="3"/>
+    <text x="124" y="467" fill="#C4B5FD" font-size="23" font-weight="700">3  Network</text>
+    <text x="392" y="467" fill="#E6EEF8" font-size="22">IP addresses and routes between machines</text>
+
+    <path d="M498 502 L498 528" stroke="#60748D" stroke-width="4"/>
+    <path d="M488 520 L498 530 L508 520" fill="none" stroke="#60748D" stroke-width="4"/>
+    <rect x="88" y="536" width="820" height="82" rx="14" fill="#252B3B" stroke="#94A3B8" stroke-width="3"/>
+    <text x="124" y="584" fill="#CBD5E1" font-size="23" font-weight="700">2  Data link</text>
+    <text x="392" y="584" fill="#E6EEF8" font-size="22">Ethernet or Wi-Fi frames on the local network</text>
+
+    <path d="M498 619 L498 645" stroke="#60748D" stroke-width="4"/>
+    <path d="M488 637 L498 647 L508 637" fill="none" stroke="#60748D" stroke-width="4"/>
+    <rect x="88" y="653" width="820" height="62" rx="14" fill="#272B33" stroke="#64748B" stroke-width="3"/>
+    <text x="124" y="694" fill="#CBD5E1" font-size="23" font-weight="700">1  Physical</text>
+    <text x="392" y="694" fill="#E6EEF8" font-size="22">Cable, fibre, or radio signal</text>
+
+    <rect x="970" y="203" width="340" height="414" rx="20" fill="#111C2E" stroke="#2A455F" stroke-width="2"/>
+    <text x="1010" y="256" fill="#F8FAFC" font-size="27" font-weight="700">Example: localhost:2026</text>
+    <line x1="1010" y1="282" x2="1268" y2="282" stroke="#38536F" stroke-width="2"/>
+    <text x="1010" y="332" fill="#A8B7CB" font-size="21">HTTP text you write</text>
+    <text x="1010" y="374" fill="#83C6FF" font-size="21">TCP uses port 2026</text>
+    <text x="1010" y="416" fill="#C4B5FD" font-size="21">IP uses 127.0.0.1</text>
+    <text x="1010" y="458" fill="#CBD5E1" font-size="21">Wi-Fi / Ethernet would carry it</text>
+    <rect x="1010" y="504" width="260" height="68" rx="10" fill="#143743"/>
+    <text x="1040" y="547" fill="#62E5DB" font-size="22" font-weight="700">One action, five layers</text>
+  </g>
+</svg>
