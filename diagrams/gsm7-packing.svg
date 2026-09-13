@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="720" viewBox="0 0 1500 720" role="img" aria-labelledby="title desc">
+  <title id="title">GSM 7-bit characters packed into 8-bit octets</title>
+  <desc id="desc">A 140-octet SMS user-data field contains 1120 bits. Dividing by seven permits up to 160 GSM 7-bit characters. Character boundaries and byte boundaries do not remain aligned.</desc>
+  <rect width="1500" height="720" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="70" fill="#F1F5F9" font-size="40" font-weight="700">GSM-7 fits 160 characters into 140 octets by packing bits</text>
+    <text x="70" y="108" fill="#A8B7CB" font-size="21">GSM-7 is its own alphabet, not seven-bit ASCII.</text>
+    <g text-anchor="middle">
+      <rect x="90" y="170" width="270" height="105" rx="18" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/><text x="225" y="215" fill="#83C6FF" font-size="35" font-weight="700">140</text><text x="225" y="248" fill="#D8E3EF" font-size="20">octets</text>
+      <text x="410" y="232" fill="#A8B7CB" font-size="40">×</text>
+      <rect x="465" y="170" width="230" height="105" rx="18" fill="#17314A" stroke="#35D3C9" stroke-width="3"/><text x="580" y="215" fill="#62E5DB" font-size="35" font-weight="700">8</text><text x="580" y="248" fill="#D8E3EF" font-size="20">bits per octet</text>
+      <text x="750" y="232" fill="#A8B7CB" font-size="40">÷</text>
+      <rect x="805" y="170" width="230" height="105" rx="18" fill="#292543" stroke="#A78BFA" stroke-width="3"/><text x="920" y="215" fill="#C4B5FD" font-size="35" font-weight="700">7</text><text x="920" y="248" fill="#D8E3EF" font-size="20">bits per character</text>
+      <text x="1090" y="232" fill="#A8B7CB" font-size="40">=</text>
+      <rect x="1145" y="170" width="270" height="105" rx="18" fill="#3A2E1E" stroke="#F9B357" stroke-width="3"/><text x="1280" y="215" fill="#F9B357" font-size="35" font-weight="700">160</text><text x="1280" y="248" fill="#D8E3EF" font-size="20">characters maximum</text>
+    </g>
+    <text x="90" y="355" fill="#F1F5F9" font-size="27" font-weight="700">Seven-bit character units</text>
+    <g font-size="18" text-anchor="middle"><rect x="90" y="385" width="180" height="70" rx="10" fill="#292543" stroke="#A78BFA" stroke-width="2"/><text x="180" y="428" fill="#C4B5FD">character 1 · 7 bits</text><rect x="270" y="385" width="180" height="70" rx="10" fill="#292543" stroke="#A78BFA" stroke-width="2"/><text x="360" y="428" fill="#C4B5FD">character 2 · 7 bits</text><rect x="450" y="385" width="180" height="70" rx="10" fill="#292543" stroke="#A78BFA" stroke-width="2"/><text x="540" y="428" fill="#C4B5FD">character 3 · 7 bits</text><rect x="630" y="385" width="180" height="70" rx="10" fill="#292543" stroke="#A78BFA" stroke-width="2"/><text x="720" y="428" fill="#C4B5FD">character 4 · 7 bits</text><rect x="810" y="385" width="180" height="70" rx="10" fill="#292543" stroke="#A78BFA" stroke-width="2"/><text x="900" y="428" fill="#C4B5FD">character 5 · 7 bits</text></g>
+    <text x="90" y="515" fill="#F1F5F9" font-size="27" font-weight="700">Re-sliced into eight-bit octets on the wire</text>
+    <g font-size="18" text-anchor="middle"><rect x="90" y="545" width="210" height="70" rx="10" fill="#17314A" stroke="#35D3C9" stroke-width="2"/><text x="195" y="588" fill="#62E5DB">octet 1 · 8 bits</text><rect x="300" y="545" width="210" height="70" rx="10" fill="#17314A" stroke="#35D3C9" stroke-width="2"/><text x="405" y="588" fill="#62E5DB">octet 2 · 8 bits</text><rect x="510" y="545" width="210" height="70" rx="10" fill="#17314A" stroke="#35D3C9" stroke-width="2"/><text x="615" y="588" fill="#62E5DB">octet 3 · 8 bits</text><rect x="720" y="545" width="210" height="70" rx="10" fill="#17314A" stroke="#35D3C9" stroke-width="2"/><text x="825" y="588" fill="#62E5DB">octet 4 · 8 bits</text></g>
+    <rect x="1010" y="375" width="405" height="240" rx="18" fill="#3A2430" stroke="#FB7185" stroke-width="3"/>
+    <text x="1045" y="420" fill="#FDA4AF" font-size="24" font-weight="700">When the alphabet changes</text>
+    <text x="1045" y="462" fill="#D8E3EF" font-size="20">UCS-2 uses 16-bit code units:</text><text x="1045" y="497" fill="#F1F5F9" font-size="20">140 ÷ 2 = 70 code units</text>
+    <text x="1045" y="542" fill="#A8B7CB" font-size="19">Many emoji require a surrogate pair,</text><text x="1045" y="572" fill="#A8B7CB" font-size="19">so they can consume two code units.</text>
+  </g>
+</svg>

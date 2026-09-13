@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+  <title id="title">Store-and-forward SMS delivery across mobile-network components</title>
+  <desc id="desc">A sending phone submits a message through its serving switch to an SMS center. The SMS center stores it, asks subscriber data where the recipient is, and forwards it to the recipient's serving switch and phone.</desc>
+  <defs><marker id="a" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L12 6L0 12z" fill="#62E5DB"/></marker><marker id="b" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L12 6L0 12z" fill="#F9B357"/></marker></defs>
+  <rect width="1600" height="820" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="70" fill="#F1F5F9" font-size="40" font-weight="700">SMS is store-and-forward, not one direct phone-to-phone stream</text>
+    <text x="70" y="108" fill="#A8B7CB" font-size="21">The SMSC accepts responsibility first, then locates and attempts delivery to the recipient.</text>
+    <g font-size="19" text-anchor="middle">
+      <rect x="55" y="170" width="210" height="90" rx="14" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/><text x="160" y="208" fill="#83C6FF" font-weight="700">Phone A</text><text x="160" y="235" fill="#D8E3EF">sender</text>
+      <rect x="320" y="170" width="210" height="90" rx="14" fill="#17314A" stroke="#35D3C9" stroke-width="3"/><text x="425" y="208" fill="#62E5DB" font-weight="700">Serving MSC A</text><text x="425" y="235" fill="#D8E3EF">mobile switch</text>
+      <rect x="695" y="170" width="210" height="90" rx="14" fill="#3A2E1E" stroke="#F9B357" stroke-width="3"/><text x="800" y="208" fill="#F9B357" font-weight="700">SMSC</text><text x="800" y="235" fill="#D8E3EF">store + forward</text>
+      <rect x="1070" y="170" width="210" height="90" rx="14" fill="#292543" stroke="#A78BFA" stroke-width="3"/><text x="1175" y="208" fill="#C4B5FD" font-weight="700">Subscriber data</text><text x="1175" y="235" fill="#D8E3EF">where is Phone B?</text>
+      <rect x="1070" y="600" width="210" height="90" rx="14" fill="#17314A" stroke="#35D3C9" stroke-width="3"/><text x="1175" y="638" fill="#62E5DB" font-weight="700">Serving MSC B</text><text x="1175" y="665" fill="#D8E3EF">recipient's switch</text>
+      <rect x="1335" y="600" width="210" height="90" rx="14" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/><text x="1440" y="638" fill="#83C6FF" font-weight="700">Phone B</text><text x="1440" y="665" fill="#D8E3EF">recipient</text>
+    </g>
+    <g fill="none" stroke-width="4">
+      <line x1="265" y1="215" x2="318" y2="215" stroke="#62E5DB" marker-end="url(#a)"/>
+      <line x1="530" y1="215" x2="693" y2="215" stroke="#62E5DB" marker-end="url(#a)"/>
+      <line x1="905" y1="215" x2="1068" y2="215" stroke="#F9B357" marker-end="url(#b)"/>
+      <path d="M1175 262 L1175 598" stroke="#62E5DB" marker-end="url(#a)"/>
+      <line x1="1280" y1="645" x2="1333" y2="645" stroke="#62E5DB" marker-end="url(#a)"/>
+    </g>
+    <g font-family="Arial, sans-serif" font-size="19">
+      <text x="280" y="188" fill="#D8E3EF">1. submit TPDU</text>
+      <text x="548" y="188" fill="#D8E3EF">2. mo-ForwardSM</text>
+      <text x="920" y="188" fill="#F9B357">3. routing lookup</text>
+      <text x="1200" y="390" fill="#D8E3EF">4. locate recipient's current MSC</text>
+      <text x="1290" y="620" fill="#D8E3EF">5. deliver</text>
+    </g>
+    <rect x="465" y="345" width="670" height="145" rx="18" fill="#111C2E" stroke="#F9B357" stroke-width="3"/>
+    <text x="800" y="392" text-anchor="middle" fill="#F9B357" font-family="Arial, sans-serif" font-size="27" font-weight="700">Acceptance is not delivery</text>
+    <text x="800" y="430" text-anchor="middle" fill="#D8E3EF" font-family="Arial, sans-serif" font-size="21">The sender can receive “accepted” while the message is only stored at the SMSC.</text>
+    <text x="800" y="464" text-anchor="middle" fill="#D8E3EF" font-family="Arial, sans-serif" font-size="21">If Phone B is unavailable, the SMSC can retry later.</text>
+    <rect x="330" y="735" width="940" height="56" rx="12" fill="#153929" stroke="#35D3C9" stroke-width="2"/><text x="800" y="771" text-anchor="middle" fill="#B5F5D4" font-family="Arial, sans-serif" font-size="22" font-weight="700">A delivery report is a separate later message, and only exists when requested and supported.</text>
+  </g>
+</svg>

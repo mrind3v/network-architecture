@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="780" viewBox="0 0 1500 780" role="img" aria-labelledby="title desc">
+  <title id="title">TCP, UDP, and QUIC compared from the application's point of view</title>
+  <desc id="desc">TCP supplies one reliable ordered byte stream in the kernel, UDP supplies independent best-effort datagrams, and QUIC supplies encrypted reliable independent streams in user space over UDP.</desc>
+  <rect width="1500" height="780" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="70" fill="#F1F5F9" font-size="40" font-weight="700">Choose the transport by the promises the application needs</text>
+    <text x="70" y="108" fill="#A8B7CB" font-size="21">UDP is not a broken TCP. It deliberately leaves reliability policy to the application.</text>
+    <g font-size="20">
+      <rect x="70" y="165" width="420" height="500" rx="20" fill="#111C2E" stroke="#35D3C9" stroke-width="3"/>
+      <text x="110" y="220" fill="#62E5DB" font-size="31" font-weight="700">TCP</text>
+      <text x="110" y="262" fill="#F1F5F9" font-size="23" font-weight="700">One ordered byte stream</text>
+      <text x="110" y="310" fill="#D8E3EF">• connection handshake</text><text x="110" y="350" fill="#D8E3EF">• reliable, ordered delivery</text><text x="110" y="390" fill="#D8E3EF">• flow + congestion control</text><text x="110" y="430" fill="#D8E3EF">• no message boundaries</text><text x="110" y="470" fill="#D8E3EF">• usually implemented in kernel</text>
+      <text x="110" y="535" fill="#A8B7CB">Typical fit</text><text x="110" y="572" fill="#F1F5F9">web, SSH, databases, email</text>
+
+      <rect x="540" y="165" width="420" height="500" rx="20" fill="#111C2E" stroke="#F9B357" stroke-width="3"/>
+      <text x="580" y="220" fill="#F9B357" font-size="31" font-weight="700">UDP</text>
+      <text x="580" y="262" fill="#F1F5F9" font-size="23" font-weight="700">Independent datagrams</text>
+      <text x="580" y="310" fill="#D8E3EF">• no transport handshake</text><text x="580" y="350" fill="#D8E3EF">• loss, duplication, reordering possible</text><text x="580" y="390" fill="#D8E3EF">• message boundaries preserved</text><text x="580" y="430" fill="#D8E3EF">• application chooses retry policy</text><text x="580" y="470" fill="#D8E3EF">• small 8-byte header</text>
+      <text x="580" y="535" fill="#A8B7CB">Typical fit</text><text x="580" y="572" fill="#F1F5F9">DNS, games, real-time media</text>
+
+      <rect x="1010" y="165" width="420" height="500" rx="20" fill="#111C2E" stroke="#A78BFA" stroke-width="3"/>
+      <text x="1050" y="220" fill="#C4B5FD" font-size="31" font-weight="700">QUIC</text>
+      <text x="1050" y="262" fill="#F1F5F9" font-size="23" font-weight="700">Encrypted independent streams</text>
+      <text x="1050" y="310" fill="#D8E3EF">• built above UDP</text><text x="1050" y="350" fill="#D8E3EF">• reliable streams + datagrams</text><text x="1050" y="390" fill="#D8E3EF">• TLS 1.3 integrated</text><text x="1050" y="430" fill="#D8E3EF">• loss in one stream need not stall others</text><text x="1050" y="470" fill="#D8E3EF">• commonly implemented in user space</text>
+      <text x="1050" y="535" fill="#A8B7CB">Typical fit</text><text x="1050" y="572" fill="#F1F5F9">HTTP/3 and modern transports</text>
+    </g>
+    <rect x="245" y="705" width="1010" height="48" rx="11" fill="#153929"/><text x="750" y="736" text-anchor="middle" fill="#B5F5D4" font-size="20" font-weight="700">The application protocol still defines what the delivered bytes or datagrams mean.</text>
+  </g>
+</svg>

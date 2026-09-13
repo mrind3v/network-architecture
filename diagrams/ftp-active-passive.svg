@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="820" viewBox="0 0 1500 820" role="img" aria-labelledby="title desc">
+  <title id="title">FTP active and passive modes compared</title>
+  <desc id="desc">In both modes the client opens the control connection. In active mode the server opens the data connection back to the client. In passive mode the client opens the data connection to a server-selected port, which works better through NAT and firewalls.</desc>
+  <defs><marker id="a" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L12 6L0 12z" fill="#62E5DB"/></marker><marker id="b" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L12 6L0 12z" fill="#F9B357"/></marker></defs>
+  <rect width="1500" height="820" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="70" fill="#F1F5F9" font-size="40" font-weight="700">FTP separates commands from file data using two TCP connections</text>
+    <text x="70" y="108" fill="#A8B7CB" font-size="21">The direction of the data connection is the important difference.</text>
+    <rect x="70" y="155" width="1360" height="270" rx="20" fill="#111C2E" stroke="#FB7185" stroke-width="3"/>
+    <text x="110" y="205" fill="#FDA4AF" font-size="28" font-weight="700">Active mode</text><text x="110" y="238" fill="#D8E3EF" font-size="20">The server calls back to the client, which is often blocked by NAT or a firewall.</text>
+    <rect x="160" y="285" width="230" height="76" rx="14" fill="#172B45"/><text x="275" y="332" text-anchor="middle" fill="#83C6FF" font-size="22">Client</text>
+    <rect x="1110" y="285" width="230" height="76" rx="14" fill="#172B45"/><text x="1225" y="332" text-anchor="middle" fill="#83C6FF" font-size="22">Server</text>
+    <line x1="392" y1="302" x2="1108" y2="302" stroke="#62E5DB" stroke-width="4" marker-end="url(#a)"/><text x="750" y="288" text-anchor="middle" fill="#62E5DB" font-size="19">client → server: control connection to port 21</text>
+    <line x1="1108" y1="345" x2="392" y2="345" stroke="#FB7185" stroke-width="5" marker-end="url(#b)"/><text x="750" y="386" text-anchor="middle" fill="#FDA4AF" font-size="19">server → client: data connection</text>
+
+    <rect x="70" y="465" width="1360" height="270" rx="20" fill="#111C2E" stroke="#35D3C9" stroke-width="3"/>
+    <text x="110" y="515" fill="#62E5DB" font-size="28" font-weight="700">Passive mode</text><text x="110" y="548" fill="#D8E3EF" font-size="20">The client opens both connections; the server advertises the data port in its PASV reply.</text>
+    <rect x="160" y="595" width="230" height="76" rx="14" fill="#172B45"/><text x="275" y="642" text-anchor="middle" fill="#83C6FF" font-size="22">Client</text>
+    <rect x="1110" y="595" width="230" height="76" rx="14" fill="#172B45"/><text x="1225" y="642" text-anchor="middle" fill="#83C6FF" font-size="22">Server</text>
+    <line x1="392" y1="612" x2="1108" y2="612" stroke="#62E5DB" stroke-width="4" marker-end="url(#a)"/><text x="750" y="598" text-anchor="middle" fill="#62E5DB" font-size="19">client → server: control connection to port 21</text>
+    <line x1="392" y1="655" x2="1108" y2="655" stroke="#F9B357" stroke-width="5" marker-end="url(#b)"/><text x="750" y="696" text-anchor="middle" fill="#F9B357" font-size="19">client → server: new data connection to advertised port</text>
+    <text x="750" y="785" text-anchor="middle" fill="#A8B7CB" font-size="19">A directory listing or file transfer uses the data connection; commands and replies stay on the control connection.</text>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="780" viewBox="0 0 1500 780" role="img" aria-labelledby="title desc">
+  <title id="title">Nested SS7 and SMS protocol data units</title>
+  <desc id="desc">An SMS text payload is wrapped by an SMS TPDU, a MAP operation, a TCAP transaction, SCCP addressing, MTP3 routing, and an MTP2 link frame.</desc>
+  <rect width="1500" height="780" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="750" y="65" fill="#F1F5F9" font-size="40" font-weight="700">The SMS text becomes the innermost payload of many wrappers</text>
+    <text x="750" y="102" fill="#A8B7CB" font-size="21">At each layer, the complete inner object is just payload.</text>
+    <rect x="90" y="145" width="1320" height="555" rx="22" fill="#111C2E" stroke="#FB7185" stroke-width="4"/>
+    <text x="750" y="182" fill="#FDA4AF" font-size="22" font-weight="700">MTP2 signal unit: link framing, sequence, error check</text>
+    <rect x="165" y="205" width="1170" height="430" rx="20" fill="#142033" stroke="#4AA8FF" stroke-width="4"/>
+    <text x="750" y="242" fill="#83C6FF" font-size="22" font-weight="700">MTP3: point-code routing and signalling-link selection</text>
+    <rect x="240" y="265" width="1020" height="305" rx="18" fill="#122B38" stroke="#35D3C9" stroke-width="4"/>
+    <text x="750" y="302" fill="#62E5DB" font-size="22" font-weight="700">SCCP: subsystem and global-title addressing</text>
+    <rect x="315" y="325" width="870" height="180" rx="16" fill="#292543" stroke="#A78BFA" stroke-width="4"/>
+    <text x="750" y="360" fill="#C4B5FD" font-size="22" font-weight="700">TCAP: transaction / dialogue containing a MAP operation</text>
+    <rect x="390" y="385" width="720" height="88" rx="14" fill="#3A2E1E" stroke="#F9B357" stroke-width="4"/>
+    <text x="750" y="420" fill="#F9B357" font-size="21" font-weight="700">MAP ForwardSM argument → SMS TPDU → user-data field</text>
+    <text x="750" y="452" fill="#F1F5F9" font-size="22">“Hello World!” encoded as GSM 7-bit data</text>
+    <text x="750" y="745" fill="#A8B7CB" font-size="19">Compare: Ethernet frame ⊃ IP packet ⊃ TCP segment ⊃ HTTP bytes.</text>
+  </g>
+</svg>

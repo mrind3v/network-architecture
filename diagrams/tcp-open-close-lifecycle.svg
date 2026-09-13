@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="940" viewBox="0 0 1500 940" role="img" aria-labelledby="title desc">
+  <title id="title">TCP connection setup, data transfer, and four-step close</title>
+  <desc id="desc">A client and server exchange SYN, SYN ACK, and ACK to open; exchange application bytes; then independently close each sending direction with FIN and ACK.</desc>
+  <defs><marker id="a" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L12 6L0 12z" fill="#62E5DB"/></marker><marker id="b" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L12 6L0 12z" fill="#F9B357"/></marker></defs>
+  <rect width="1500" height="940" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="66" fill="#F1F5F9" font-size="40" font-weight="700">TCP opens both directions, then closes each direction independently</text>
+    <text x="70" y="104" fill="#A8B7CB" font-size="21">SYN and FIN each consume one sequence number even when they carry no application bytes.</text>
+    <rect x="155" y="145" width="250" height="70" rx="14" fill="#17314A" stroke="#35D3C9" stroke-width="3"/><text x="280" y="188" text-anchor="middle" fill="#62E5DB" font-size="25" font-weight="700">Client</text>
+    <rect x="1095" y="145" width="250" height="70" rx="14" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/><text x="1220" y="188" text-anchor="middle" fill="#83C6FF" font-size="25" font-weight="700">Server</text>
+    <line x1="280" y1="220" x2="280" y2="885" stroke="#475569" stroke-width="2" stroke-dasharray="8 8"/><line x1="1220" y1="220" x2="1220" y2="885" stroke="#475569" stroke-width="2" stroke-dasharray="8 8"/>
+    <g font-size="19">
+      <text x="70" y="275" fill="#62E5DB" font-weight="700">OPEN: 3 segments</text>
+      <line x1="285" y1="285" x2="1215" y2="330" stroke="#62E5DB" stroke-width="4" marker-end="url(#a)"/><text x="715" y="287" fill="#D8E3EF">SYN seq=1000</text>
+      <line x1="1215" y1="355" x2="285" y2="400" stroke="#83C6FF" stroke-width="4" marker-end="url(#a)"/><text x="685" y="360" fill="#D8E3EF">SYN + ACK seq=5000 ack=1001</text>
+      <line x1="285" y1="425" x2="1215" y2="470" stroke="#62E5DB" stroke-width="4" marker-end="url(#a)"/><text x="705" y="430" fill="#D8E3EF">ACK ack=5001</text>
+      <rect x="500" y="488" width="500" height="62" rx="14" fill="#153929" stroke="#35D3C9" stroke-width="2"/><text x="750" y="527" text-anchor="middle" fill="#B5F5D4" font-size="22" font-weight="700">Established: application bytes can flow both ways</text>
+      <text x="70" y="605" fill="#F9B357" font-weight="700">CLOSE: usually 4 segments</text>
+      <line x1="285" y1="615" x2="1215" y2="650" stroke="#F9B357" stroke-width="4" marker-end="url(#b)"/><text x="690" y="615" fill="#D8E3EF">FIN + ACK: client will send no more</text>
+      <line x1="1215" y1="675" x2="285" y2="710" stroke="#83C6FF" stroke-width="4" marker-end="url(#a)"/><text x="700" y="678" fill="#D8E3EF">ACK: server may still send remaining data</text>
+      <line x1="1215" y1="735" x2="285" y2="770" stroke="#F9B357" stroke-width="4" marker-end="url(#b)"/><text x="705" y="737" fill="#D8E3EF">FIN + ACK: server closes its direction</text>
+      <line x1="285" y1="795" x2="1215" y2="830" stroke="#62E5DB" stroke-width="4" marker-end="url(#a)"/><text x="720" y="798" fill="#D8E3EF">final ACK</text>
+    </g>
+    <rect x="70" y="858" width="1360" height="56" rx="12" fill="#3A2430" stroke="#FB7185" stroke-width="2"/><text x="750" y="894" text-anchor="middle" fill="#FDA4AF" font-size="21" font-weight="700">The active closer enters TIME_WAIT; the peer can be half-closed and continue sending before its own FIN.</text>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="880" viewBox="0 0 1400 880" role="img" aria-labelledby="title desc">
+  <title id="title">The seven OSI layers and their responsibilities</title>
+  <desc id="desc">Seven stacked layers run from application meaning at layer seven to signals at layer one. Each layer offers a service upward and uses the layer below.</desc>
+  <rect width="1400" height="880" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="72" fill="#F1F5F9" font-size="40" font-weight="700">OSI is a thinking model: each layer solves one kind of problem</text>
+    <text x="70" y="110" fill="#A8B7CB" font-size="21">Read downward when sending; read upward when receiving.</text>
+    <g font-size="23">
+      <rect x="100" y="155" width="1200" height="78" rx="12" fill="#3A2E1E" stroke="#F9B357" stroke-width="3"/><text x="130" y="204" fill="#F9B357" font-weight="700">L7 Application</text><text x="390" y="204" fill="#E6EEF8">Meaning and rules for users: HTTP, DNS, SMTP, FTP, SIP</text>
+      <rect x="100" y="244" width="1200" height="78" rx="12" fill="#292543" stroke="#A78BFA" stroke-width="3"/><text x="130" y="293" fill="#C4B5FD" font-weight="700">L6 Presentation</text><text x="390" y="293" fill="#E6EEF8">Representation: encoding, compression, encryption</text>
+      <rect x="100" y="333" width="1200" height="78" rx="12" fill="#292543" stroke="#A78BFA" stroke-width="3"/><text x="130" y="382" fill="#C4B5FD" font-weight="700">L5 Session</text><text x="390" y="382" fill="#E6EEF8">Conversation management: start, maintain, resume, end</text>
+      <rect x="100" y="422" width="1200" height="78" rx="12" fill="#143743" stroke="#35D3C9" stroke-width="3"/><text x="130" y="471" fill="#62E5DB" font-weight="700">L4 Transport</text><text x="390" y="471" fill="#E6EEF8">Process-to-process delivery: TCP, UDP, QUIC*</text>
+      <rect x="100" y="511" width="1200" height="78" rx="12" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/><text x="130" y="560" fill="#83C6FF" font-weight="700">L3 Network</text><text x="390" y="560" fill="#E6EEF8">Packets across networks: IP addressing and routing</text>
+      <rect x="100" y="600" width="1200" height="78" rx="12" fill="#17314A" stroke="#35D3C9" stroke-width="3"/><text x="130" y="649" fill="#62E5DB" font-weight="700">L2 Data link</text><text x="390" y="649" fill="#E6EEF8">One local link: Ethernet/Wi-Fi frames, MAC, error check</text>
+      <rect x="100" y="689" width="1200" height="78" rx="12" fill="#3A2430" stroke="#FB7185" stroke-width="3"/><text x="130" y="738" fill="#FDA4AF" font-weight="700">L1 Physical</text><text x="390" y="738" fill="#E6EEF8">Bits as electrical, optical, or radio signals</text>
+    </g>
+    <text x="100" y="820" fill="#A8B7CB" font-size="19">* QUIC is implemented above UDP, but it supplies transport-like services to applications.</text>
+  </g>
+</svg>
