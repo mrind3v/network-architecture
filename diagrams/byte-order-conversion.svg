@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="680" viewBox="0 0 1500 680" role="img" aria-labelledby="title desc">
+  <title id="title">Host to network byte-order conversion for TCP port 2026</title>
+  <desc id="desc">The value 2026 is hexadecimal 07EA. A little-endian host stores EA then 07, htons produces network order 07 then EA, and ntohs converts a received network value back for the host.</desc>
+  <defs><marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#62E5DB"/></marker></defs>
+  <rect width="1500" height="680" fill="#0B1220"/>
+  <g font-family="Arial, sans-serif">
+    <text x="78" y="78" fill="#F1F5F9" font-size="40" font-weight="700">One value, two possible byte orders</text>
+    <text x="78" y="118" fill="#A8B7CB" font-size="22">Port 2026 = 0x07EA. The numeric value stays the same; only its multi-byte representation changes.</text>
+
+    <rect x="78" y="180" width="410" height="340" rx="20" fill="#172B45" stroke="#4AA8FF" stroke-width="3"/>
+    <text x="116" y="230" fill="#83C6FF" font-size="25" font-weight="700">Little-endian host memory</text>
+    <text x="116" y="270" fill="#A8B7CB" font-size="20">lower address → higher address</text>
+    <rect x="116" y="308" width="150" height="104" rx="12" fill="#222B4D" stroke="#A78BFA" stroke-width="3"/>
+    <rect x="282" y="308" width="150" height="104" rx="12" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <text x="165" y="374" fill="#C4B5FD" font-size="38" font-weight="700">EA</text>
+    <text x="331" y="374" fill="#62E5DB" font-size="38" font-weight="700">07</text>
+    <text x="116" y="462" fill="#D8E3EF" font-size="21">least-significant byte first</text>
+
+    <line x1="488" y1="350" x2="694" y2="350" stroke="#62E5DB" stroke-width="5" marker-end="url(#arrow)"/>
+    <rect x="526" y="284" width="150" height="52" rx="25" fill="#143743"/>
+    <text x="558" y="318" fill="#62E5DB" font-size="22" font-weight="700">htons()</text>
+
+    <rect x="706" y="180" width="716" height="340" rx="20" fill="#111C2E" stroke="#35D3C9" stroke-width="3"/>
+    <text x="744" y="230" fill="#62E5DB" font-size="25" font-weight="700">Network byte order — always big-endian</text>
+    <text x="744" y="270" fill="#A8B7CB" font-size="20">first byte on the wire → second byte</text>
+    <rect x="744" y="308" width="150" height="104" rx="12" fill="#17314A" stroke="#35D3C9" stroke-width="3"/>
+    <rect x="910" y="308" width="150" height="104" rx="12" fill="#222B4D" stroke="#A78BFA" stroke-width="3"/>
+    <text x="793" y="374" fill="#62E5DB" font-size="38" font-weight="700">07</text>
+    <text x="959" y="374" fill="#C4B5FD" font-size="38" font-weight="700">EA</text>
+    <text x="1088" y="346" fill="#D8E3EF" font-size="21">Both machines agree</text>
+    <text x="1088" y="378" fill="#D8E3EF" font-size="21">how to decode the field.</text>
+    <text x="744" y="462" fill="#D8E3EF" font-size="21">most-significant byte first</text>
+
+    <rect x="78" y="572" width="1344" height="62" rx="14" fill="#3A2E1E"/>
+    <text x="116" y="611" fill="#F9B357" font-size="22">ntohs() performs the reverse boundary conversion. Text such as “2026” is already four ordered character bytes and is not converted.</text>
+  </g>
+</svg>
