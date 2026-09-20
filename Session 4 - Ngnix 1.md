@@ -1,5 +1,3 @@
-Yes. Below is a consolidated set of exam notes covering every slide and concept we have studied in this conversation so far. I have organized it so you can revise from it directly rather than rereading the entire chat.
-
 # Web Server Architecture: Apache → Java/FastCGI → nginx → Event Loops
 
 ## 1. The central historical problem
