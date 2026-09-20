@@ -1,9 +1,3 @@
-# Network Architecture - Session 1 Expanded Notes
-
-These notes expand the 48-slide first session, **Computer Networks: Network programming, from the socket up**. They assume that this is your first computer-networks course.
-
-The slides move quickly because they start from a real server program and then expose the ideas hidden beneath it. Read this document in order. Each section adds only the ideas needed for the next one.
-
 ## 1. The one big picture
 
 When you open a web page, two programs communicate across a network. The diagram shows the layers involved and where familiar terms such as HTTP, TCP, IP, and Wi-Fi belong.
