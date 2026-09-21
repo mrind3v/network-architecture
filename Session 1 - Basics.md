@@ -1,5 +1,3 @@
-# Network Architecture — Introduction: Consolidated Notes
-
 ## 1. TCP server: the basic lifecycle
 
 A low-level TCP server is essentially built using these system calls:
@@ -1708,38 +1706,4 @@ select / epoll
 
 And higher-level systems such as gRPC hide most of this behind generated APIs.
 
----
-
-# Questions you should be able to answer in an exam
-
-1. Why does a TCP server require `socket`, `bind`, `listen`, and `accept`?
-2. What is the difference between a listening socket and an accepted socket?
-3. Where does a TCP client obtain its source port?
-4. Why can multiple clients connect to the same server port?
-5. Why does TCP require application-level framing?
-6. Compare fixed-length, delimiter-based, and length-prefixed framing.
-7. What happens when a server does not call `accept()`?
-8. What causes `SIGPIPE`?
-9. Compare FIN and RST.
-10. Why does `htons()` exist?
-11. What is network byte order?
-12. Why is `gethostbyname()` more complicated internally than it appears?
-13. Compare `fork()`, `select()`, and `epoll`.
-14. Why are connection pools useful?
-15. Explain `INADDR_ANY`.
-16. Explain `SO_REUSEADDR` and `TIME_WAIT`.
-17. Where does TLS sit relative to HTTP and TCP?
-18. What is the difference between SSL and TLS?
-19. What role does a certificate authority play?
-20. What is BCD?
-21. What is ASN.1?
-22. What is TLV, and why does it support forward compatibility?
-23. Why are hex and Base64 useful for binary protocols?
-24. What is RPC?
-25. What are marshalling and demarshalling?
-26. Why can retrying an RPC be dangerous?
-27. What is gRPC?
-28. What is a `.proto` file?
-29. What does protobuf code generation generate?
-30. How do ASN.1, TLV, protobuf, RPC and gRPC relate to one another?
 

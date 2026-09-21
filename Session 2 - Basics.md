@@ -1384,27 +1384,6 @@ Reducing round trips is often more valuable than merely increasing bandwidth.
 
 ---
 
-# 55. High-value contrasts to memorize
-
-These are especially useful for exams:
-
-| Topic | A | B |
-|---|---|---|
-| Ethernet vs Wi-Fi | collision detection | collision avoidance |
-| TCP vs UDP | reliable ordered stream | minimal datagram service |
-| TCP vs SS7 reliability | end-to-end | hop-by-hop |
-| SS7 ISUP vs bearer | signalling | voice |
-| SIP vs RTP | signalling | media |
-| POP3 vs IMAP | download-oriented | sync/server-oriented |
-| FTP active vs passive | server opens data connection | client opens data connection |
-| Delimiter vs length | read until marker | read exact number of bytes |
-| TCP vs QUIC | one ordered stream | multiple independent streams |
-| TCP handshake vs teardown | 3 segments | usually 4 segments |
-| SMTP vs POP3 | send/relay | retrieve |
-| POP3 vs SMTP | receiver side | sender/relay side |
-
----
-
 # 56. Exam-level “why” questions you should be able to answer
 
 You should be able to explain, not just memorize:
@@ -1465,28 +1444,3 @@ Why does application framing exist?
 
 Because TCP gives a byte stream and does not preserve application message boundaries.
 
----
-
-# 57. Final mental model
-
-The entire set of slides can be reduced to a few recurring principles:
-
-`Networks are layered.`
-
-`Layers encapsulate other layers.`
-
-`Control and data are often separated.`
-
-`Reliability can be hop-by-hop or end-to-end.`
-
-`Every guarantee costs state, bytes, computation, or latency.`
-
-`UDP removes guarantees; QUIC selectively rebuilds them.`
-
-`Text protocols need framing and encoding.`
-
-`Old protocol constraints often survive for decades.`
-
-`Protocol design is largely about deciding where state, reliability, framing, security, and control should live.`
-
-If you understand those principles, the individual protocols become much easier to reason about.
